@@ -1,0 +1,15 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(date 1605140104458)
++++ app/src/main/AndroidManifest.xml	(date 1605140104458)
+@@ -12,6 +12,7 @@
+         android:roundIcon="@mipmap/ic_launcher_round"
+         android:supportsRtl="true"
+         android:theme="@style/AppTheme" >
++
+         <activity android:name=".MainActivity" >
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
