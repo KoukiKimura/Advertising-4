@@ -16,12 +16,18 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 R.id.navigation_dashboard -> {
-                    message.setText(R.string.title_dashboard)
-                    return@OnNavigationItemSelectedListener true
+                    val firstFragment = FirstFragment()
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction?.addToBackStack(null)
+                    fragmentTransaction?.replace(R.id.fragment_container, firstFragment)
+                    fragmentTransaction?.commit()
                 }
                 R.id.navigation_notifications -> {
-                    message.setText(R.string.title_notifications)
-                    return@OnNavigationItemSelectedListener true
+                    val secondFragment = SecondFragment()
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction?.addToBackStack(null)
+                    fragmentTransaction?.replace(R.id.fragment_container, secondFragment)
+                    fragmentTransaction?.commit()
                 }
             }
             false
