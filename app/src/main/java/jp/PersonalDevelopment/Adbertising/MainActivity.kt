@@ -29,6 +29,13 @@ class MainActivity : AppCompatActivity() {
                     fragmentTransaction?.replace(R.id.fragment_container, secondFragment)
                     fragmentTransaction?.commit()
                 }
+                R.id.navigation_subscribe -> {
+                    val subscribeFragment = SubscribeFragment()
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction?.addToBackStack(null)
+                    fragmentTransaction?.replace(R.id.fragment_container, subscribeFragment)
+                    fragmentTransaction?.commit()
+                }
             }
             false
         }
