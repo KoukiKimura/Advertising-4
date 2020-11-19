@@ -12,21 +12,24 @@ class MainActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> {
-                    val intent = Intent(this, LoginActivity::class.java )
-                    startActivity(intent)
-                }
-                R.id.navigation_dashboard -> {
-                    val firstFragment = FirstFragment()
+                    val homeFragment = HomeFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, firstFragment)
+                    fragmentTransaction?.replace(R.id.fragment_container, homeFragment)
+                    fragmentTransaction?.commit()
+                }
+                R.id.navigation_dashboard -> {
+                val searchFragment = SearchFragment()
+                    val fragmentTransaction = supportFragmentManager.beginTransaction()
+                    fragmentTransaction?.addToBackStack(null)
+                    fragmentTransaction?.replace(R.id.fragment_container, searchFragment)
                     fragmentTransaction?.commit()
                 }
                 R.id.navigation_notifications -> {
-                    val secondFragment = SecondFragment()
+                    val couponFragment = CouponFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, secondFragment)
+                    fragmentTransaction?.replace(R.id.fragment_container, couponFragment)
                     fragmentTransaction?.commit()
                 }
                 R.id.navigation_subscribe -> {

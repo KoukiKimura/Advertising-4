@@ -14,24 +14,13 @@ class FirstFragment : Fragment() {
         private const val TAG = "FirstFragment"
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.first_fragment, container, false)
+    override fun onCreateView(  inflater: LayoutInflater, container: ViewGroup?,
+                                savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val toSecondButton = view.findViewById<Button>(R.id.to_second_fragment_button)
-        toSecondButton.setOnClickListener{
-            Log.d(TAG, "toSecondButton pressed!")
-            val secondFragment = SecondFragment()
-            val fragmentTransaction = fragmentManager?.beginTransaction()
-            fragmentTransaction?.addToBackStack(null)
-            fragmentTransaction?.replace(R.id.fragment_container, secondFragment)
-            fragmentTransaction?.commit()
-        }
+
     }
 }
