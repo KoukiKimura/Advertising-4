@@ -14,30 +14,30 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home -> {
                     val homeFragment = HomeFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
-                    fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, homeFragment)
-                    fragmentTransaction?.commit()
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.replace(R.id.fragment_container, homeFragment)
+                    fragmentTransaction.commit()
                 }
                 R.id.navigation_dashboard -> {
                 val searchFragment = SearchFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
-                    fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, searchFragment)
-                    fragmentTransaction?.commit()
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.replace(R.id.fragment_container, searchFragment)
+                    fragmentTransaction.commit()
                 }
                 R.id.navigation_notifications -> {
                     val couponFragment = CouponFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
-                    fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, couponFragment)
-                    fragmentTransaction?.commit()
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.replace(R.id.fragment_container, couponFragment)
+                    fragmentTransaction.commit()
                 }
                 R.id.navigation_subscribe -> {
                     val subscribeFragment = SubscribeFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
-                    fragmentTransaction?.addToBackStack(null)
-                    fragmentTransaction?.replace(R.id.fragment_container, subscribeFragment)
-                    fragmentTransaction?.commit()
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.replace(R.id.fragment_container, subscribeFragment)
+                    fragmentTransaction.commit()
                 }
             }
             false
