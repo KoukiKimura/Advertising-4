@@ -11,28 +11,28 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_home -> {
+                R.id.navigation_Home -> {
                     val homeFragment = HomeFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction.addToBackStack(null)
                     fragmentTransaction.replace(R.id.fragment_container, homeFragment)
                     fragmentTransaction.commit()
                 }
-                R.id.navigation_dashboard -> {
+                R.id.navigation_Search -> {
                 val searchFragment = SearchFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction.addToBackStack(null)
                     fragmentTransaction.replace(R.id.fragment_container, searchFragment)
                     fragmentTransaction.commit()
                 }
-                R.id.navigation_notifications -> {
+                R.id.navigation_Coupon -> {
                     val couponFragment = CouponFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction.addToBackStack(null)
                     fragmentTransaction.replace(R.id.fragment_container, couponFragment)
                     fragmentTransaction.commit()
                 }
-                R.id.navigation_subscribe -> {
+                R.id.navigation_Subscribe -> {
                     val subscribeFragment = SubscribeFragment()
                     val fragmentTransaction = supportFragmentManager.beginTransaction()
                     fragmentTransaction.addToBackStack(null)
@@ -48,9 +48,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val firstFragment = FirstFragment()
+        val homeFragment = HomeFragment()
         val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment_container, firstFragment)
+        fragmentTransaction.add(R.id.fragment_container, homeFragment)
         fragmentTransaction.commit()
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)

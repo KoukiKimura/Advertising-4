@@ -16,4 +16,12 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_to_home">Welcome to Home!</string>
+    <string name="Home">homo</string>
+    <string name="Search">Search</string>
+    <string name="Coupon">Coupon</string>
+    <string name="Subscribe">Subscribe</string>
+    <string name="Welcom_to_Coupon">Welcom_to_coupon</string>
+    <string name="content">content</string>
+    <string name="item_number">item_number</string>
 </resources>
