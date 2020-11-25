@@ -14,6 +14,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity(){
+    private val binding by lazy {
+        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+    }
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             Log.d("MainActivity","NavigationView")
 
@@ -54,8 +58,12 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        setSupportActionBar(binding.toolbar)
 
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
