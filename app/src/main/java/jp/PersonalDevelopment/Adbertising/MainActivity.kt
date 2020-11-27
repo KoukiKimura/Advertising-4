@@ -54,6 +54,8 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())

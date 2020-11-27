@@ -27,36 +27,89 @@
                     android:text="@string/welcome_to_home"
                     android:textColor="#05DA56"
                     android:textSize="50sp" />
-
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
                 <TextView
                     android:id="@+id/homeTextView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_to_home"
-                    android:textSize="50sp"
-                    android:textColor="#05DA56" />
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
                 <TextView
                     android:id="@+id/homeTextView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_to_home"
-                    android:textSize="50sp"
-                    android:textColor="#05DA56" />
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
                 <TextView
                     android:id="@+id/homeTextView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_to_home"
-                    android:textSize="50sp"
-                    android:textColor="#05DA56" />
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
                 <TextView
                     android:id="@+id/homeTextView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/welcome_to_home"
-                    android:textSize="50sp"
-                    android:textColor="#05DA56" />
-
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:id="@+id/homeTextView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_to_home"
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:id="@+id/homeTextView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_to_home"
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:id="@+id/homeTextView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_to_home"
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
+                <TextView
+                    android:id="@+id/homeTextView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/welcome_to_home"
+                    android:textColor="#05DA56"
+                    android:textSize="50sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
