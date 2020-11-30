@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "136524900834",
+    "firebase_url": "https://test-f92eb.firebaseio.com",
+    "project_id": "test-f92eb",
+    "storage_bucket": "test-f92eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136524900834:android:4a13f7ed313d039f2bb1bb",
+        "android_client_info": {
+          "package_name": "jp.PersonalDevelopment.Adbertising"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136524900834-7m2o6q2ea6iedg0cbdnjsl6her4mt94i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqzc2sd3dceRhRFwtcEGEi5Av9pDDOVvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136524900834-7m2o6q2ea6iedg0cbdnjsl6her4mt94i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
