@@ -5,3 +5,6 @@ Fragment -              https://memento-mori-blog.com/android-kotlin-fragment/
 BottomNavigationView -  https://swiswiswift.com/2018-11-20/  
 ViewPager -             https://android.keicode.com/basics/viewpager.php  
   
+## Server  ### Used : さくらVPS ( CentOS )
+php.sql.apach -         https://www.kdkwakaba.com/archives/735  
+OpenSSL.OpenSSH -       https://www.kdkwakaba.com/archives/408  
