@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="windowActionBar">@color/colorActionBar</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <color name="colorActionBar">#FF7028</color>
