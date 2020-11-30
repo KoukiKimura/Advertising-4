@@ -7,3 +7,4 @@ ViewPager -             https://android.keicode.com/basics/viewpager.php
   
 ## Server  ### Used : さくらVPS ( CentOS )
 php.sql.apach -         https://www.kdkwakaba.com/archives/735
+OpenSSL.OpenSSH -       https://www.kdkwakaba.com/archives/408  
