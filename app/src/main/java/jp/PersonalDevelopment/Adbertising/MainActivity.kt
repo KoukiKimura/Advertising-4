@@ -1,13 +1,11 @@
 package jp.PersonalDevelopment.Adbertising
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
-import android.util.TypedValue
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -39,10 +37,10 @@ class MainActivity : AppCompatActivity(){
                         .commit()
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.navigation_Subscribe -> {
+                R.id.navigation_Point -> {
                     Log.d("MainActivity", "Subscibe")
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, SubscribeFragment())
+                        .replace(R.id.fragment_container, PointFragment())
                         .commit()
                     return@OnNavigationItemSelectedListener true
                 }
@@ -54,11 +52,21 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // BottomNavigationView処理
         navigation.setEnabled(true);
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        // HomeFragment の表示
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
+
+        /*
+        // ログイン処理
+        val user = FirebaseAuth.getInstance().currentUser       // ログイン済みユーザを取得する
+        if (user == null) {                                     // ログインしていなければログイン画面に遷移させる
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
+        }
+         */
     }
 }

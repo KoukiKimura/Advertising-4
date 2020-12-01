@@ -16,7 +16,7 @@
         android:icon="@drawable/ic_launcher_background"
         android:title=""/>
     <item
-        android:id="@+id/navigation_Subscribe"
+        android:id="@+id/navigation_Point"
         android:icon="@drawable/ic_launcher_background"
         android:title=""/>
 </menu>
