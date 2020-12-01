@@ -3,15 +3,16 @@ package jp.PersonalDevelopment.Adbertising
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             Log.d("MainActivity", "NavigationView")
 
@@ -48,9 +49,15 @@ class MainActivity : AppCompatActivity(){
          false
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val imageFrame : ImageView = findViewById(R.id.account_icon)
+        imageFrame.setOnClickListener(this)
+
 
         // BottomNavigationView処理
         navigation.setEnabled(true);
@@ -68,5 +75,10 @@ class MainActivity : AppCompatActivity(){
             startActivity(intent)
         }
          */
+    }
+
+    override fun onClick(v: View?){
+        val intent = Intent(this, TestActivity::class.java)
+        startActivity(intent)
     }
 }
