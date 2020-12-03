@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -67,14 +68,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 .replace(R.id.fragment_container, HomeFragment())
                 .commit()
 
-        /*
+
         // ログイン処理
         val user = FirebaseAuth.getInstance().currentUser       // ログイン済みユーザを取得する
         if (user == null) {                                     // ログインしていなければログイン画面に遷移させる
             val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
-         */
+
     }
 
     override fun onClick(v: View?){

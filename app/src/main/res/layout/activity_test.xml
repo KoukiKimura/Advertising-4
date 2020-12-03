@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="タイトル"
-        android:id="@+id/titleTextView"
+        android:id="@+id/title_name_text"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         tools:ignore="MissingConstraints" />
@@ -21,30 +21,30 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/titleText"
+        android:id="@+id/title_name_editText"
         android:gravity="top"
         android:inputType="text"
-        android:layout_below="@+id/titleTextView"
+        android:layout_below="@+id/title_name_text"
         android:layout_alignParentStart="true"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="質問内容"
-        android:id="@+id/textView"
-        android:layout_below="@+id/titleText"
+        android:text="詳細"
+        android:id="@+id/desp_text"
+        android:layout_below="@+id/title_name_editText"
         android:layout_alignParentStart="true"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bodyText"
+        android:id="@+id/desp_editText"
         android:inputType="textMultiLine"
         android:maxLines="10"
         android:gravity="top"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/desp_text"
         android:layout_alignParentStart="true"
         tools:ignore="MissingConstraints" />
 
@@ -52,30 +52,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="添付画像"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/bodyText"
+        android:id="@+id/send_image"
+        android:layout_below="@+id/desp_editText"
         android:layout_alignParentStart="true"
         tools:ignore="MissingConstraints" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:id="@+id/imageView"
-        android:layout_below="@+id/textView2"
+        android:id="@+id/send_image_set"
+        android:layout_below="@+id/send_image"
         android:background="#d3d3d3"
         android:layout_centerHorizontal="true"
         tools:ignore="MissingConstraints" />
 
-    <Button
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="企業名"
+        android:id="@+id/company_name_text"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/company_name_editText"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        android:gravity="top"
+        android:layout_below="@+id/company_name_text"
+        android:layout_alignParentStart="true"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="#359901"
         android:text="投稿"
         android:textColor="#FFFFFF"
-        android:background="#359901"
-        android:id="@+id/sendButton"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp"
         tools:ignore="MissingConstraints" />
 
     <ProgressBar

@@ -34,7 +34,7 @@
         android:text="name"
         tools:ignore="MissingConstraints" />
     <TextView
-        android:id="@+id/list_home_top_resText"
+        android:id="@+id/list_home_top_despText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/list_home_top_title"
