@@ -7,16 +7,17 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ListView
+import androidx.appcompat.app.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.recyclerview.widget.ListAdapter
+import jp.PersonalDevelopment.Adbertising.AdbListAdapter
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,6 +30,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, HomeFragment())
                         .commit()
+
+                    mListArrayList.clear()
+                    mAdapter.setAdbArrayList(mListArrayList)
+                    mListView.adapter = mAdapter
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_Search -> {
@@ -56,20 +61,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
          false
     }
 
-    // --- ここから ---
+    // Firebase 連携
     private lateinit var mDatabaseReference: DatabaseReference
     private lateinit var mListView: ListView
-    private lateinit var mQuestionArrayList: ArrayList<list>
+    private lateinit var mListArrayList: ArrayList<list>
     private lateinit var mAdapter: AdbListAdapter
-
-    private var mGenreRef: DatabaseReference? = null
 
     private val mEventListener = object : ChildEventListener {
         override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
             val map = dataSnapshot.value as Map<String, String>
             val title = map["title"] ?: ""
-            val body = map["body"] ?: ""
-            val name = map["name"] ?: ""
+            val desp = map["desp"] ?: ""
             val uid = map["uid"] ?: ""
             val imageString = map["image"] ?: ""
             val bytes =
@@ -80,31 +82,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
 
 
-            val question = list(title, desp ,  uid, dataSnapshot.key)
-            mQuestionArrayList.add(question)
+            val list = list(title, desp ,  uid,bytes)
+            mListArrayList.add(list)
             mAdapter.notifyDataSetChanged()
         }
 
         override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {
             val map = dataSnapshot.value as Map<String, String>
 
-            // 変更があったQuestionを探す
-            for (question in mQuestionArrayList) {
-                if (dataSnapshot.key.equals(question.questionUid)) {
-                    // このアプリで変更がある可能性があるのは回答(Answer)のみ
-                    question.answers.clear()
-                    val answerMap = map["answers"] as Map<String, String>?
-                    if (answerMap != null) {
-                        for (key in answerMap.keys) {
-                            val temp = answerMap[key] as Map<String, String>
-                            val answerBody = temp["body"] ?: ""
-                            val answerName = temp["name"] ?: ""
-                            val answerUid = temp["uid"] ?: ""
-                            val answer = Answer(answerBody, answerName, answerUid, key)
-                            question.answers.add(answer)
-                        }
-                    }
-
+            // 変更があったListを探す
+            for (list in mListArrayList) {
+                if (dataSnapshot.key.equals(list.uid)) {
                     mAdapter.notifyDataSetChanged()
                 }
             }
@@ -123,8 +111,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     // --- ここまで追加する ---
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,8 +136,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
 
-    }
+        // Firebase
+        mDatabaseReference = FirebaseDatabase.getInstance().reference
 
+        // ListView の準備
+        mListView = findViewById(R.id.home_list_view)
+        mListArrayList = ArrayList<list>()
+        mAdapter = AdbListAdapter(this)
+        mAdapter.notifyDataSetChanged()
+
+    }
     override fun onClick(v: View?){
         val intent = Intent(this, TestActivity::class.java)
         startActivity(intent)

@@ -8,7 +8,8 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp">
 
-    <ListView
+    <!--suppress AndroidElementNotAllowed -->
+    <listView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/home_list_view"/>

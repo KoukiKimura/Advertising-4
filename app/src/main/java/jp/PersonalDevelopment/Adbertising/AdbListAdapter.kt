@@ -10,7 +10,9 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 
-abstract class AdbListAdapter(context: Context) : BaseAdapter() {
+import java.util.ArrayList
+
+class AdbListAdapter(context: Context) : BaseAdapter() {
     private var mLayoutInflater: LayoutInflater
     private var mAdbArrayList = ArrayList<list>()
 
