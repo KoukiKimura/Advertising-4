@@ -3,13 +3,13 @@ package jp.PersonalDevelopment.Adbertising
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-
 import java.util.ArrayList
 
 class AdbListAdapter(context: Context) : BaseAdapter() {
@@ -31,6 +31,7 @@ class AdbListAdapter(context: Context) : BaseAdapter() {
     }
     override fun getView(position:Int,convertView:View?,parent:ViewGroup): View {
         var convertView = convertView
+        Log.d("AdbListAdapter","getView")
 
         if(convertView == null){
             convertView = mLayoutInflater.inflate(R.layout.list_home_top,parent, false)

@@ -30,10 +30,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragment_container, HomeFragment())
                         .commit()
-
-                    mListArrayList.clear()
-                    mAdapter.setAdbArrayList(mListArrayList)
-                    mListView.adapter = mAdapter
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_Search -> {
@@ -61,55 +57,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
          false
     }
 
-    // Firebase 連携
-    private lateinit var mDatabaseReference: DatabaseReference
-    private lateinit var mListView: ListView
-    private lateinit var mListArrayList: ArrayList<list>
-    private lateinit var mAdapter: AdbListAdapter
 
-    private val mEventListener = object : ChildEventListener {
-        override fun onChildAdded(dataSnapshot: DataSnapshot, s: String?) {
-            val map = dataSnapshot.value as Map<String, String>
-            val title = map["title"] ?: ""
-            val desp = map["desp"] ?: ""
-            val uid = map["uid"] ?: ""
-            val imageString = map["image"] ?: ""
-            val bytes =
-                    if (imageString.isNotEmpty()) {
-                        Base64.decode(imageString, Base64.DEFAULT)
-                    } else {
-                        byteArrayOf()
-                    }
-
-
-            val list = list(title, desp ,  uid,bytes)
-            mListArrayList.add(list)
-            mAdapter.notifyDataSetChanged()
-        }
-
-        override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {
-            val map = dataSnapshot.value as Map<String, String>
-
-            // 変更があったListを探す
-            for (list in mListArrayList) {
-                if (dataSnapshot.key.equals(list.uid)) {
-                    mAdapter.notifyDataSetChanged()
-                }
-            }
-        }
-
-        override fun onChildRemoved(p0: DataSnapshot) {
-
-        }
-
-        override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-
-        }
-
-        override fun onCancelled(p0: DatabaseError) {
-
-        }
-    }
     // --- ここまで追加する ---
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -136,14 +84,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             startActivity(intent)
         }
 
-        // Firebase
-        mDatabaseReference = FirebaseDatabase.getInstance().reference
-
-        // ListView の準備
-        mListView = findViewById(R.id.home_list_view)
-        mListArrayList = ArrayList<list>()
-        mAdapter = AdbListAdapter(this)
-        mAdapter.notifyDataSetChanged()
 
     }
     override fun onClick(v: View?){
