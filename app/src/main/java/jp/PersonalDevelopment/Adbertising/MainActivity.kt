@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(v: View?){
         val intent = Intent(this, TestActivity::class.java)
+        intent.putExtra("genre", 0)
         startActivity(intent)
     }
 }

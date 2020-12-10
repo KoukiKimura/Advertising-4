@@ -17,6 +17,7 @@ class AdbListAdapter(context: Context) : BaseAdapter() {
     private var mAdbArrayList = ArrayList<list>()
 
     init {
+        Log.d("AdbListAdapter","init")
         mLayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
@@ -24,14 +25,16 @@ class AdbListAdapter(context: Context) : BaseAdapter() {
         return mAdbArrayList.size
     }
     override fun getItem(position: Int): Any {
+        Log.d("AdbListAdapter","getItem")
         return mAdbArrayList[position]
     }
     override fun getItemId(position: Int): Long{
+        Log.d("AdbListAdapter","geItemId")
         return position.toLong()
     }
-    override fun getView(position:Int,convertView:View?,parent:ViewGroup): View {
-        var convertView = convertView
+    override fun getView(position:Int, convertView:View?, parent: ViewGroup?): View {
         Log.d("AdbListAdapter","getView")
+        var convertView = convertView
 
         if(convertView == null){
             convertView = mLayoutInflater.inflate(R.layout.list_home_top,parent, false)

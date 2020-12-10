@@ -9,23 +9,19 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
-import com.google.firebase.database.core.Context
-
-private const val ARG_PARAM = "param"
+import jp.PersonalDevelopment.Adbertising.Adbertising.ContentsPATH
+import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeFragment:Fragment(){
 
     // Firebase 連携
     private lateinit var mDatabaseReference: DatabaseReference
+
     private lateinit var mListView: ListView
     private lateinit var mListArrayList: ArrayList<list>
     private lateinit var mAdapter: AdbListAdapter
 
-    private var mDataRef: DatabaseReference? = null
-
-    private var param: String? = null
     private var listener: OnHomeFragmentListener? = null
-
 
     override fun onAttach(context: android.content.Context) {
         super.onAttach(context)
@@ -35,9 +31,6 @@ class HomeFragment:Fragment(){
 
     override fun onCreate(savedinstanceState: Bundle?){
         super.onCreate(savedinstanceState)
-        arguments?.let{
-            param = it.getString(ARG_PARAM)
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -48,11 +41,12 @@ class HomeFragment:Fragment(){
         var view = inflater.inflate(R.layout.fragment_home, container,false)
 
         // ListView の準備
+        var mGenreRef = mDatabaseReference.child(ContentsPATH).child("0")
+        mGenreRef!!.addChildEventListener(mEventListener)
         mListView = view.findViewById(R.id.home_list_view)
-
-
+    //    mAdapter.getView(0,fragment_container,fragment_container)
         mAdapter.notifyDataSetChanged()
-        mAdapter.setAdbArrayList(mListArrayList)
+        mListArrayList = ArrayList<list>()
         mListView.adapter = mAdapter
 
         Log.d("Fragment","onCreateView")
@@ -64,10 +58,11 @@ class HomeFragment:Fragment(){
         super.onViewCreated(view, savedInstanceState)
         Log.d("Fragment","onViewCreated")
 
-        mListArrayList = ArrayList<list>()
-
+        val map = mutableListOf("aaa","bbb","ccc")
+        mListArrayList.clear()
         mAdapter.setAdbArrayList(mListArrayList)
         mListView.adapter = mAdapter
+
         Log.d("Fragment", mListView.count.toString())
     }
 
@@ -89,7 +84,7 @@ class HomeFragment:Fragment(){
                     } else {
                         byteArrayOf()
                     }
-            val list = list(title, desp ,  uid,bytes)
+            val list = list(title,desp,uid,bytes)
             mListArrayList.add(list)
             mAdapter.notifyDataSetChanged()
         }
@@ -119,9 +114,7 @@ class HomeFragment:Fragment(){
         @JvmStatic
         fun newInstance(param: String) =
                 HomeFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM, param)
-                    }
+
                 }
 
     }
