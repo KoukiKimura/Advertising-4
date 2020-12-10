@@ -9,44 +9,48 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/appbar">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            android:theme="?attr/actionBarTheme" >
+            android:background="@color/colorPrimaryDark"
+            android:theme="?attr/actionBarTheme"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/tatile_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/common_google_signin_btn_icon_dark_normal"/>
+                    android:src="@drawable/common_google_signin_btn_icon_dark_normal" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tatile_icon"
                     android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/tatile_icon"
                     android:text="@string/App_Name"
-                    android:textSize="35dp"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000"
+                    android:textSize="35dp" />
 
                 <ImageView
                     android:id="@+id/notice_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/account_icon"
-                    android:src="@drawable/common_google_signin_btn_icon_dark_normal_background"/>
+                    android:src="@drawable/common_google_signin_btn_icon_dark_normal_background" />
 
                 <ImageView
                     android:id="@+id/account_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/common_google_signin_btn_icon_dark"/>
+                    android:src="@drawable/common_google_signin_btn_icon_dark" />
             </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
