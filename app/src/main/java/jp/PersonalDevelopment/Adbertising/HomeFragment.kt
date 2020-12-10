@@ -41,8 +41,9 @@ class HomeFragment:Fragment(){
         var view = inflater.inflate(R.layout.fragment_home, container,false)
 
         // ListView の準備
-        var mGenreRef = mDatabaseReference.child(ContentsPATH).child("0")
-        mGenreRef!!.addChildEventListener(mEventListener)
+        var mListRef = mDatabaseReference.child(ContentsPATH).child("0")
+      //  Log.d("cont",mGenreRef!!.addChildEventListener(mEventListener).onChildAdded().toString())
+        mListRef!!.addChildEventListener(mEventListener)
         mListView = view.findViewById(R.id.home_list_view)
     //    mAdapter.getView(0,fragment_container,fragment_container)
         mAdapter.notifyDataSetChanged()
@@ -59,11 +60,14 @@ class HomeFragment:Fragment(){
         Log.d("Fragment","onViewCreated")
 
         val map = mutableListOf("aaa","bbb","ccc")
-        mListArrayList.clear()
+      //  mListArrayList.clear()
+        var mListRef = mDatabaseReference.child(ContentsPATH).child("0")
+        mListRef!!.addChildEventListener(mEventListener)
         mAdapter.setAdbArrayList(mListArrayList)
+        mAdapter.notifyDataSetChanged()
         mListView.adapter = mAdapter
 
-        Log.d("Fragment", mListView.count.toString())
+        Log.d("Fragmenton", mListView.count.toString())
     }
 
     override fun onDetach() {
@@ -87,6 +91,7 @@ class HomeFragment:Fragment(){
             val list = list(title,desp,uid,bytes)
             mListArrayList.add(list)
             mAdapter.notifyDataSetChanged()
+            Log.d("onChildAdded", mListArrayList.size.toString())
         }
         override fun onChildChanged(dataSnapshot: DataSnapshot, s: String?) {
             val map = dataSnapshot.value as Map<String, String>
