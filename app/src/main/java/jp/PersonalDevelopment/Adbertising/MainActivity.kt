@@ -16,49 +16,50 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ListAdapter
 import jp.PersonalDevelopment.Adbertising.AdbListAdapter
 
-
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            Log.d("MainActivity", "NavigationView")
+    private var activeFragment: Fragment =HomeFragment()
 
+    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_Home -> {
-                    Log.d("MainActivity", "Home")
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, HomeFragment())
-                        .commit()
+                            .replace(R.id.fragment_container,HomeFragment())
+                            .addToBackStack(null)
+                            .commit()
+                    Log.d("onNavigation",activeFragment.toString())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_Search -> {
-                    Log.d("MainActivity", "Search")
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, SearchFragment())
-                        .commit()
+                            .replace(R.id.fragment_container,SearchFragment())
+                            .addToBackStack(null)
+                            .commit()
+                    Log.d("onNavigation",activeFragment.toString())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_Coupon -> {
-                    Log.d("MainActivity", "Coupon")
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, CouponFragment())
-                        .commit()
+                            .replace(R.id.fragment_container,CouponFragment())
+                            .addToBackStack(null)
+                            .commit()
+                    Log.d("onNavigation",activeFragment.toString())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_Point -> {
-                    Log.d("MainActivity", "Subscibe")
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, PointFragment())
-                        .commit()
+                            .replace(R.id.fragment_container,PointFragment())
+                            .addToBackStack(null)
+                            .commit()
+                    Log.d("onNavigation",activeFragment.toString())
                     return@OnNavigationItemSelectedListener true
                 }
             }
          false
     }
-
-
-    // --- ここまで追加する ---
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,15 +68,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val imageFrame : ImageView = findViewById(R.id.account_icon)
         imageFrame.setOnClickListener(this)
 
-
         // BottomNavigationView処理
         navigation.setEnabled(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         // HomeFragment の表示
+        activeFragment = HomeFragment()
         supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
+                .replace(R.id.fragment_container,HomeFragment())
+//                .add(R.id.fragment_container, PointFragment())
+//                .hide(PointFragment())
+//                .add(R.id.fragment_container, SearchFragment())
+//                .hide(SearchFragment())
+//                .add(R.id.fragment_container, CouponFragment())
+//                .hide(CouponFragment())
+//                .add(R.id.fragment_container, HomeFragment())
                 .commit()
-
 
         // ログイン処理
         val user = FirebaseAuth.getInstance().currentUser       // ログイン済みユーザを取得する
@@ -83,9 +90,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
-
-
     }
+
     override fun onClick(v: View?){
         val intent = Intent(this, TestActivity::class.java)
         intent.putExtra("genre", 0)

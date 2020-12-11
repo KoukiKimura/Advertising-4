@@ -8,19 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
+import com.google.android.gms.common.util.DeviceProperties.isTablet
 import com.google.firebase.database.*
 import jp.PersonalDevelopment.Adbertising.Adbertising.ContentsPATH
 import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeFragment:Fragment(){
 
-    // Firebase 連携
     private lateinit var mDatabaseReference: DatabaseReference
-
     private lateinit var mListView: ListView
     private lateinit var mListArrayList: ArrayList<list>
     private lateinit var mAdapter: AdbListAdapter
-
     private var listener: OnHomeFragmentListener? = null
 
     override fun onAttach(context: android.content.Context) {
@@ -42,15 +40,11 @@ class HomeFragment:Fragment(){
 
         // ListView の準備
         var mListRef = mDatabaseReference.child(ContentsPATH).child("0")
-      //  Log.d("cont",mGenreRef!!.addChildEventListener(mEventListener).onChildAdded().toString())
         mListRef!!.addChildEventListener(mEventListener)
         mListView = view.findViewById(R.id.home_list_view)
-    //    mAdapter.getView(0,fragment_container,fragment_container)
         mAdapter.notifyDataSetChanged()
         mListArrayList = ArrayList<list>()
         mListView.adapter = mAdapter
-
-        Log.d("Fragment","onCreateView")
 
         return view
     }
@@ -110,6 +104,8 @@ class HomeFragment:Fragment(){
         override fun onCancelled(p0: DatabaseError) {
         }
     }
+
+
 
     interface OnHomeFragmentListener{
         fun onHomeFragmentFinish()
