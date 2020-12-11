@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="200dp"
+    android:paddingTop="5dp"
+    app:cardElevation="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/list_base"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/list_base">
 
     <ImageView
         android:id="@+id/list_home_top_icon"
@@ -41,4 +51,5 @@
         android:layout_toEndOf="@+id/list_home_top_icon"
         android:text="New Text"
         tools:ignore="MissingConstraints" />
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

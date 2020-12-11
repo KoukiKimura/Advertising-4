@@ -39,8 +39,6 @@ class HomeFragment:Fragment(){
         var view = inflater.inflate(R.layout.fragment_home, container,false)
 
         // ListView の準備
-        var mListRef = mDatabaseReference.child(ContentsPATH).child("0")
-        mListRef!!.addChildEventListener(mEventListener)
         mListView = view.findViewById(R.id.home_list_view)
         mAdapter.notifyDataSetChanged()
         mListArrayList = ArrayList<list>()
