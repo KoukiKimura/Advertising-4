@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFE500</color>
-    <color name="colorPrimaryDark">#FF8400</color>
+    <color name="colorPrimary">#FFFB5F</color>
+    <color name="colorPrimaryDark">#FF7B23</color>
     <color name="colorAccent">#FF3F3F</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
@@ -9,5 +9,5 @@
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
 
-    <color name="list_base">#FFFD76</color>
+    <color name="home_back">#F2FFE8</color>
 </resources>

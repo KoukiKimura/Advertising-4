@@ -1,11 +1,13 @@
 package jp.PersonalDevelopment.Adbertising
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.google.android.gms.common.util.DeviceProperties.isTablet
@@ -21,7 +23,7 @@ class HomeFragment:Fragment(){
     private lateinit var mAdapter: AdbListAdapter
     private var listener: OnHomeFragmentListener? = null
 
-    override fun onAttach(context: android.content.Context) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mAdapter = AdbListAdapter(context)
         Log.d("fragment","onAttach")
@@ -37,6 +39,8 @@ class HomeFragment:Fragment(){
         mDatabaseReference = FirebaseDatabase.getInstance().reference
 
         var view = inflater.inflate(R.layout.fragment_home, container,false)
+
+        val imageFrame : ImageView = view.findViewById(R.id.account_icon)
 
         // ListView の準備
         mListView = view.findViewById(R.id.home_list_view)
@@ -60,6 +64,12 @@ class HomeFragment:Fragment(){
         mListView.adapter = mAdapter
 
         Log.d("Fragmenton", mListView.count.toString())
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val account_icon = activity!!.findViewById<ImageView>(R.id.account_icon)
+        account_icon.setOnClickListener(View.OnClickListener { Log.d("test","account_icon Click") })
     }
 
     override fun onDetach() {

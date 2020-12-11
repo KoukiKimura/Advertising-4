@@ -65,8 +65,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val imageFrame : ImageView = findViewById(R.id.account_icon)
-        imageFrame.setOnClickListener(this)
+
 
         // BottomNavigationView処理
         navigation.setEnabled(true);

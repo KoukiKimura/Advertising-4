@@ -6,14 +6,14 @@
     android:paddingTop="5dp"
     app:cardElevation="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/list_base"
+    app:cardBackgroundColor="@color/colorPrimary"
     app:cardUseCompatPadding="true"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/list_base">
+        android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/list_home_top_icon"
