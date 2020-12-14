@@ -30,26 +30,33 @@ class PointFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val list = ArrayList<Map<String, String>>()
-        for (i in 0..10){
-            val map = HashMap<String, String>()
-            map.put("main","メイン $i")
-            map.put("sub","サブ $i")
-            list.add(map)
-        }
 
-        val adapter = SimpleAdapter(
-                getContext(),
-                list,
-                android.R.layout.simple_list_item_2,
-                arrayOf("main","sub"),
-                intArrayOf(android.R.id.text1, android.R.id.text2)
-        )
 
-        point_list_view.adapter = adapter
+/*
+val list = ArrayList<Map<String, String>>()
+for (i in 0..10){
+val map = HashMap<String, String>()
+map.put("main","メイン $i")
+map.put("sub","サブ $i")
+list.add(map)
+}
 
-        point_list_view.setOnItemClickListener {parent, view, position, id ->
-            Log.d("UI_PARTS","クリック $position")
-        }
+val adapter = SimpleAdapter(
+getContext(),
+list,
+android.R.layout.simple_list_item_2,
+arrayOf("main","sub"),
+intArrayOf(android.R.id.text1, android.R.id.text2)
+)
+
+point_list_view.adapter = adapter
+
+point_list_view.setOnItemClickListener {parent, view, position, id ->
+Log.d("UI_PARTS","クリック $position")
+}
+*/
+
+
+
     }
 }
