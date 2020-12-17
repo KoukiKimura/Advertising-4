@@ -12,11 +12,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import com.google.android.gms.common.util.DeviceProperties.isTablet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.database.*
 import jp.PersonalDevelopment.Adbertising.Adbertising.ContentsPATH
-import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeFragment:Fragment(){
 
@@ -76,7 +74,6 @@ class HomeFragment:Fragment(){
 
         Log.d("Fragmenton", mListView.count.toString())
     }
-
     override fun onStart() {
         super.onStart()
     }

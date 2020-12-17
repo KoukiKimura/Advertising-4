@@ -2,26 +2,34 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="150dp"
     android:paddingTop="5dp"
     app:cardElevation="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardBackgroundColor="#000000"
     app:cardUseCompatPadding="true"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="15dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_margin="1dp"
+        app:cardCornerRadius="15dp"
+        >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary">
+        android:background="#FFFF8B">
 
     <ImageView
         android:id="@+id/list_home_top_icon"
-        android:layout_width="200dp"
+        android:layout_width="150dp"
         android:layout_height="200dp"
-        android:layout_margin="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="#FDFFBE"
         android:src="@drawable/common_google_signin_btn_text_light_normal"
         tools:ignore="MissingConstraints" />
     <TextView
@@ -52,4 +60,5 @@
         android:text="New Text"
         tools:ignore="MissingConstraints" />
     </RelativeLayout>
+</androidx.cardview.widget.CardView>
 </androidx.cardview.widget.CardView>
