@@ -107,7 +107,6 @@ class TestActivity : AppCompatActivity(), View.OnClickListener, DatabaseReferenc
                 } else {
                     // 許可されていないので許可ダイアログを表示する
                     requestPermissions(arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), PERMISSIONS_REQUEST_CODE)
-
                     return
                 }
             } else {

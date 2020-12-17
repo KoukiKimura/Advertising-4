@@ -65,8 +65,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         // BottomNavigationView処理
         navigation.setEnabled(true);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -74,13 +72,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         activeFragment = HomeFragment()
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container,HomeFragment())
-//                .add(R.id.fragment_container, PointFragment())
-//                .hide(PointFragment())
-//                .add(R.id.fragment_container, SearchFragment())
-//                .hide(SearchFragment())
-//                .add(R.id.fragment_container, CouponFragment())
-//                .hide(CouponFragment())
-//                .add(R.id.fragment_container, HomeFragment())
                 .commit()
 
         // ログイン処理

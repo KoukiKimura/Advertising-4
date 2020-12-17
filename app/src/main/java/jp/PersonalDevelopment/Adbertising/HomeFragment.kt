@@ -1,6 +1,7 @@
 package jp.PersonalDevelopment.Adbertising
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
@@ -8,9 +9,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.google.android.gms.common.util.DeviceProperties.isTablet
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.database.*
 import jp.PersonalDevelopment.Adbertising.Adbertising.ContentsPATH
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,10 +26,12 @@ class HomeFragment:Fragment(){
     private lateinit var mAdapter: AdbListAdapter
     private var listener: OnHomeFragmentListener? = null
 
+    private lateinit var mBottomSheet: BottomSheetBehavior<LinearLayout>
+    private lateinit var mImageView: ImageView
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mAdapter = AdbListAdapter(context)
-        Log.d("fragment","onAttach")
     }
 
     override fun onCreate(savedinstanceState: Bundle?){
@@ -37,9 +42,7 @@ class HomeFragment:Fragment(){
                               savedInstanceState: Bundle?):View?{
         // Firebase
         mDatabaseReference = FirebaseDatabase.getInstance().reference
-
         var view = inflater.inflate(R.layout.fragment_home, container,false)
-
         val imageFrame : ImageView = view.findViewById(R.id.account_icon)
 
         // ListView の準備
@@ -47,6 +50,14 @@ class HomeFragment:Fragment(){
         mAdapter.notifyDataSetChanged()
         mListArrayList = ArrayList<list>()
         mListView.adapter = mAdapter
+
+        // BottomSheet
+        var bottomSheet : LinearLayout = view.findViewById(R.id.home_bottom_sheet)
+        mBottomSheet= BottomSheetBehavior.from(bottomSheet)
+        mImageView = view.findViewById(R.id.home_image_view)
+
+        mListView.setOnItemClickListener { parent, view, position, id -> onListClicked(view) }
+        imageFrame.setOnClickListener { view -> onIconClicked(view) }
 
         return view
     }
@@ -68,10 +79,7 @@ class HomeFragment:Fragment(){
 
     override fun onStart() {
         super.onStart()
-        val account_icon = activity!!.findViewById<ImageView>(R.id.account_icon)
-        account_icon.setOnClickListener(View.OnClickListener { Log.d("test","account_icon Click") })
     }
-
     override fun onDetach() {
         super.onDetach()
         listener = null
@@ -113,12 +121,29 @@ class HomeFragment:Fragment(){
         }
     }
 
+    private fun onListClicked(view:View){
+        Log.d("dirLook",view.toString())
 
+                if(mBottomSheet.state != BottomSheetBehavior.STATE_EXPANDED) {
+                    // 全画面化
+                    Log.d("BottomSheet","BottomSheet Expanded")
+                    mBottomSheet.state = BottomSheetBehavior.STATE_EXPANDED
+                } else {
+                    // 縮小化（peekHeightの高さ）
+                    Log.d("BottomSheet","BottomSheet Coolapsed")
+                    mBottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
+                }
+    }
+    private fun onIconClicked(view:View){
+        val intent = Intent(context,TestActivity::class.java)
+        intent.putExtra("genre",0)
+        activity!!.startActivity(intent)
+        Log.d("onIconClickd","activity!!")
+    }
 
     interface OnHomeFragmentListener{
         fun onHomeFragmentFinish()
     }
-
     companion object {
         @JvmStatic
         fun newInstance(param: String) =
@@ -127,6 +152,4 @@ class HomeFragment:Fragment(){
                 }
 
     }
-
 }
-
