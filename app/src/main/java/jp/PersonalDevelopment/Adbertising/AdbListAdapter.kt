@@ -3,7 +3,6 @@ package jp.PersonalDevelopment.Adbertising
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +13,9 @@ import java.util.ArrayList
 
 class AdbListAdapter(context: Context) : BaseAdapter() {
     private var mLayoutInflater: LayoutInflater
-    private var mAdbArrayList = ArrayList<list>()
+    private var mAdbArrayList = ArrayList<HomeListSystem>()
 
     init {
-        Log.d("AdbListAdapter","init")
         mLayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
@@ -25,15 +23,12 @@ class AdbListAdapter(context: Context) : BaseAdapter() {
         return mAdbArrayList.size
     }
     override fun getItem(position: Int): Any {
-        Log.d("AdbListAdapter","getItem")
         return mAdbArrayList[position]
     }
     override fun getItemId(position: Int): Long{
-        Log.d("AdbListAdapter","geItemId")
         return position.toLong()
     }
     override fun getView(position:Int, convertView:View?, parent: ViewGroup?): View {
-        Log.d("AdbListAdapter","getView")
         var convertView = convertView
 
         if(convertView == null){
@@ -54,7 +49,7 @@ class AdbListAdapter(context: Context) : BaseAdapter() {
         return convertView
     }
 
-    fun setAdbArrayList(adbArrayList: ArrayList<list>){
-        mAdbArrayList = adbArrayList
+    fun setAdbArrayList(adbArrayHomeListSystem: ArrayList<HomeListSystem>){
+        mAdbArrayList = adbArrayHomeListSystem
     }
 }
