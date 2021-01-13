@@ -2,34 +2,34 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="350dp"
     android:paddingTop="5dp"
     app:cardElevation="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="#FFFEBE"
     app:cardUseCompatPadding="true"
-    app:cardCornerRadius="15dp">
+    app:cardCornerRadius="1dp">
 
     <androidx.cardview.widget.CardView
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_margin="1dp"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="1dp"
         >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFF8B">
+        android:background="#FFDEDE">
 
     <ImageView
         android:id="@+id/list_home_top_icon"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
         android:layout_marginEnd="1dp"
-        android:background="#FDFFBE"
+        android:background="#F7FEFF"
         android:src="@drawable/common_google_signin_btn_text_light_normal"
         tools:ignore="MissingConstraints" />
     <TextView
