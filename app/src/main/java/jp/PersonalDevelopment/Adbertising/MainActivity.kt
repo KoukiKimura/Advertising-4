@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 R.id.navigation_Search -> {
                     supportFragmentManager.beginTransaction()
-                            .replace(R.id.fragment_container,SearchFragment())
+                            .replace(R.id.fragment_container,MapsFragment())
                             .addToBackStack(null)
                             .commit()
                     Log.d("onNavigation",activeFragment.toString())
