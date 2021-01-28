@@ -9,11 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
-import java.util.ArrayList
 
 class HomeImageAdapter(context: Context) : BaseAdapter() {
     private var mLayoutInflater: LayoutInflater
     private var mHomeImageArrayList = ArrayList<HomeImageListSystem>()
+
+
 
     init {
         mLayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
